@@ -1,0 +1,112 @@
+/* Colores base */
+:root {
+  --color-primary: #fa7099;  /* Rosa */
+  --color-secondary: #af8008;  /* Amarillo */
+  --color-background: #ffffff;  /* Blanco */
+  --color-text: #343a40;  /* Texto principal oscuro */
+}
+
+/* Estilos generales del body y header */
+body {
+  margin: 0;
+  background-color: var(--color-background); /* Fondo blanco */
+  font-size: larger;
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-background); /* Fondo blanco */
+}
+
+/* Estilos para la navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white; /* Texto oscuro */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #007bff; /* Azul brillante al hacer hover */
+}
+
+/* Estilos para el contenido principal */
+main {
+  padding: 2rem;
+}
+
+/* Estilos para el footer */
+footer {
+  background-image: linear-gradient(to right, var(--color-secondary) 0%, var(--color-secondary) 100%);
+  padding: 1rem;
+  text-align: center;
+  color: white; /* Texto blanco sobre el gradiente */
+}
+
+/* Estilos para títulos */
+h1, h2 {
+  color: white; /* Texto oscuro */
+}
+
+/* Estilos para botones */
+button {
+  background-image: linear-gradient(to top, var(--color-secondary) 0%, var(--color-secondary) 100%);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff9999; /* Color de hover */
+}
+
+button:disabled {
+  background-color: #ddd; /* Color cuando está deshabilitado */
+  cursor: not-allowed;
+}
+
+.store-container {
+  padding: 2rem 0;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* Ajusta la altura al 100% */
+  overflow-y: auto; /* Habilita el desplazamiento vertical cuando sea necesario */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+  gap: 2rem;
+  padding: 0 2rem;
+  width: 100%; /* Asegura que el grid ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Considera el padding dentro del ancho del grid */
+}
+
+
+

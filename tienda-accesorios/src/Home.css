@@ -1,0 +1,55 @@
+/* src/Home.css */
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.firma {
+  font-family: "Playwrite US Trad", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: rgb(255, 176, 189);
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease-in-out;
+  text-align: center;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+.section-slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-slider button {
+  background-color: #007bff;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.section-slider button:hover {
+  background-color: #0056b3;
+}
+
+.section-slider h2 {
+  font-size: 2rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  color: rgb(241, 119, 186);
+}
+
+.section-slider h2.active {
+  opacity: 1;
+  transform: translateX(0);
+}
