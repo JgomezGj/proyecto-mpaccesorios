@@ -1,7 +1,9 @@
+/* src/Global.css */
+
 /* Colores base */
 :root {
   --color-primary: #fa7099;  /* Rosa */
-  --color-secondary: #af8008;  /* Amarillo */
+  --color-secondary: #808080;  /* Dorado */
   --color-background: #ffffff;  /* Blanco */
   --color-text: #343a40;  /* Texto principal oscuro */
 }
@@ -17,16 +19,6 @@ body {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
-}
-
-
-header {
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: var(--color-background); /* Fondo blanco */
 }
 
 /* Estilos para la navegación */
@@ -67,7 +59,7 @@ footer {
 
 /* Estilos para títulos */
 h1, h2 {
-  color: white; /* Texto oscuro */
+  color: var(--color-text); /* Texto oscuro */
 }
 
 /* Estilos para botones */
@@ -107,6 +99,52 @@ button:disabled {
   width: 100%; /* Asegura que el grid ocupe todo el ancho disponible */
   box-sizing: border-box; /* Considera el padding dentro del ancho del grid */
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets grandes */
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets pequeñas */
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+}
+
 
 
 

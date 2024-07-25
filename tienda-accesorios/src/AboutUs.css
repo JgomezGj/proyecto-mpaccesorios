@@ -1,91 +1,110 @@
 /* src/AboutUs.css */
 
 .content-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background-color: #f7f7f7;
-    height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  min-height: 100vh; /* Cambiado de height a min-height */
+}
+
+.text-container {
+  flex: 1;
+  padding: 2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.custom-paragraph {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  transition: color 0.3s ease;
+}
+
+.custom-paragraph:hover {
+  color: #007bff;
+}
+
+.new-paragraph {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 1.5s ease-in-out;
+}
+
+.custom-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .text-container {
-    flex: 1;
-    padding: 2rem;
-    animation: fadeIn 1.5s ease-in-out;
+  to {
+    opacity: 1;
   }
-  
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .text-container, .image-container {
+    padding: 1rem;
+  }
+
   .custom-paragraph {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #333;
-    text-align: justify;
-    transition: color 0.3s ease;
+    font-size: 1rem;
   }
-  
-  .custom-paragraph:hover {
-    color: #007bff;
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 0.5rem;
   }
-  
-  .new-paragraph {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
+
+  .text-container, .image-container {
+    padding: 0.5rem;
   }
-  
-  .image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: slideIn 1.5s ease-in-out;
+
+  .custom-paragraph {
+    font-size: 0.875rem;
   }
-  
+
   .custom-image {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho disponible */
   }
-  
-  .custom-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .content-container {
-      flex-direction: column;
-      padding: 1rem;
-    }
-  
-    .text-container, .image-container {
-      padding: 1rem;
-    }
-  
-    .custom-paragraph {
-      font-size: 1rem;
-    }
-  }
+}
+
   

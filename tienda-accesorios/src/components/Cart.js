@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import '../Cart.css'; // Importar el archivo CSS creado para el estilo del carrito
+import '../Cart.css'; // Importa el archivo CSS creado para el estilo del carrito
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const calculateTotal = () => {
     return Object.values(cartItems).reduce((acc, { price, quantity }) => acc + price * quantity, 0).toFixed(2);
+  };
+
+  const handleCheckout = () => {
+    // Redirige a la URL de PayU LATAM sandbox
+    window.location.href = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
   };
 
   return (
@@ -33,7 +38,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
             <div className="cart-total">
               <strong>Total:</strong> ${calculateTotal()}
             </div>
-            <button className="checkout-button">Pagar</button>
+            <button className="checkout-button" onClick={handleCheckout}>Pagar</button>
           </div>
         </div>
       )}
@@ -47,5 +52,8 @@ Cart.propTypes = {
 };
 
 export default Cart;
+
+
+
 
 

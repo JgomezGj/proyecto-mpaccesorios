@@ -1,38 +1,29 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import Modal from '../Modal'; // Asegúrate de que la ruta sea correcta
 import '../ProductCard.css';
 
 const ProductCard = ({ product, addToCart }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const toggleExpand = () => {
-    setExpanded(!expanded);
-  };
-
-  const handleAddToCart = (event) => {
-    event.stopPropagation(); // Detiene la propagación del evento para evitar la expansión/contracción del producto
-    addToCart(product); // Llama a la función addToCart pasada por props
+  const toggleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
-    <div className={`product-card ${expanded ? 'expanded' : ''}`} onClick={toggleExpand}>
-      <div className="product-image-container">
-        <img src={product.image} alt={product.name} className={`product-image ${expanded ? 'expanded-image' : ''}`} />
+    <>
+      <div className="product-card" onClick={toggleModal}>
+        <div className="product-image-container">
+          <img src={product.image} alt={product.name} className="product-image" />
+        </div>
+        <div className="product-card-content">
+          <h2 className="product-name">{product.name}</h2>
+          <p className="product-price">${product.price.toFixed(2)}</p>
+          <button className="buy-button" onClick={(e) => { e.stopPropagation(); addToCart(product); }}>Comprar</button>
+        </div>
       </div>
-      <div className="product-card-content">
-        <h2 className="product-name">{product.name}</h2>
-        <p className="product-price">${product.price.toFixed(2)}</p>
-        {!expanded && (
-          <button className="buy-button" onClick={handleAddToCart}>Comprar</button>
-        )}
-        {expanded && (
-          <div className="expanded-content">
-            <p>{product.description}</p>
-            <button className="buy-button" onClick={handleAddToCart}>Comprar</button>
-          </div>
-        )}
-      </div>
-    </div>
+      <Modal show={showModal} onClose={toggleModal} product={product} />
+    </>
   );
 };
 
@@ -44,10 +35,11 @@ ProductCard.propTypes = {
     image: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
-  addToCart: PropTypes.func.isRequired, // Asegúrate de que addToCart sea requerido como función
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;
+
 
 
 

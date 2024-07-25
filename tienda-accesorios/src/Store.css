@@ -7,17 +7,6 @@
   align-items: center;
 }
 
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .store-title {
   font-family: "Playwrite US Trad", cursive;
   font-optical-sizing: auto;
@@ -30,12 +19,13 @@
 }
 
 .product-grid {
-  margin-top: -15%;
-  margin-bottom: -8%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
   padding: 0 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-card {
@@ -52,9 +42,20 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.product-image {
+.product-image-container {
   width: 100%;
-  height: auto;
+  overflow: hidden;
+  padding-top: 75%; /* Esto asegura una proporción 4:3 */
+  position: relative;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción de la imagen */
 }
 
 .product-card-content {
@@ -88,3 +89,56 @@
 .buy-button:hover {
   background-color: #a6720c;
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .store-title {
+    font-size: 2.5rem; /* Reduce el tamaño de los títulos en tablets */
+  }
+
+  .product-grid {
+    padding: 0 1rem; /* Reduce el padding en tablets */
+    gap: 1.5rem; /* Reduce el gap en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .store-title {
+    font-size: 2rem; /* Reduce aún más el tamaño de los títulos en móviles */
+  }
+
+  .product-grid {
+    padding: 0 1rem; /* Reduce el padding en móviles */
+    gap: 1rem; /* Reduce el gap en móviles */
+  }
+
+  .product-card-content {
+    padding: 0.5rem; /* Reduce el padding dentro de las tarjetas en móviles */
+  }
+
+  .product-name,
+  .product-price {
+    font-size: 1rem; /* Reduce el tamaño de la fuente en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .store-title {
+    font-size: 1.5rem; /* Reduce aún más el tamaño de los títulos en móviles pequeños */
+  }
+
+  .product-grid {
+    padding: 0 0.5rem; /* Reduce el padding en móviles pequeños */
+    gap: 0.5rem; /* Reduce el gap en móviles pequeños */
+  }
+
+  .product-card-content {
+    padding: 0.5rem; /* Reduce el padding dentro de las tarjetas en móviles pequeños */
+  }
+
+  .product-name,
+  .product-price {
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente en móviles pequeños */
+  }
+}
+

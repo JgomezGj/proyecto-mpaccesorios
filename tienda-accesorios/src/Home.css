@@ -1,9 +1,11 @@
+/* src/Main.css */
+
 main {
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Cambiado de height a min-height */
   background-color: #f0f0f0;
 }
 
@@ -25,6 +27,7 @@ main {
   align-items: center;
   gap: 1rem;
   position: relative;
+  align-items: center;
 }
 
 .section-slider button {
@@ -82,5 +85,54 @@ main {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .slider-content {
+    width: 250px;
+    height: 180px;
+  }
+
+  .section-slider h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  .section-slider {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .slider-content {
+    width: 200px;
+    height: 150px;
+  }
+
+  .section-slider h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-slider button {
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .slider-content {
+    width: 150px;
+    height: 100px;
+  }
+
+  .section-slider h2 {
+    font-size: 1.25rem;
+  }
+}
+
 
 
