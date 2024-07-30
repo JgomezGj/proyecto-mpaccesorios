@@ -1,9 +1,8 @@
-// Modal.js
 import PropTypes from 'prop-types';
 import React from 'react';
 import './Modal.css';
 
-const Modal = ({ show, onClose, product }) => {
+const Modal = ({ show, onClose, product, addToCart }) => {
   if (!show) return null;
 
   return (
@@ -14,7 +13,7 @@ const Modal = ({ show, onClose, product }) => {
         <img src={product.image} alt={product.name} className="modal-image" />
         <p>{product.description}</p>
         <p className="modal-price">${product.price.toFixed(2)}</p>
-        <button className="buy-button" onClick={() => { onClose(); /* Add to cart functionality */ }}>Comprar</button>
+        <button className="buy-button" onClick={() => { addToCart(product); onClose(); }}>Comprar</button>
       </div>
     </div>
   );
@@ -24,6 +23,8 @@ Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default Modal;
+

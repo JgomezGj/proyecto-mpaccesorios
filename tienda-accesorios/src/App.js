@@ -1,14 +1,18 @@
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import NuevaColeccion from './components/NewCollection'; // Importar los nuevos componentes
-import PromocionesOfertas from './components/OfferAndPromo'; // Importar los nuevos componentes
+import NuevaColeccion from './components/NewCollection';
+import PromocionesOfertas from './components/OfferAndPromo';
 import AboutUs from './pages/AboutUs';
 import Collections from './pages/Collections';
 import ContactUs from './pages/ContactUs';
 import Home from './pages/Home';
+import Moda from './pages/Moda'; // Nueva importación
+import Motivacion from './pages/Motivacion'; // Nueva importación
+import Mujeres from './pages/Mujeres'; // Nueva importación
 import Register from './pages/Register';
 import Store from './pages/Store';
 
@@ -61,6 +65,9 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/moda" element={<Moda />} />  {/* Nueva ruta */}
+        <Route path="/motivacion" element={<Motivacion />} />  {/* Nueva ruta */}
+        <Route path="/mujeres" element={<Mujeres />} />  {/* Nueva ruta */}
         <Route
           path="/cart"
           element={<Cart cartItems={Object.values(cartItems)} removeFromCart={removeFromCart} />} 
@@ -72,4 +79,3 @@ const App = () => {
 };
 
 export default App;
-

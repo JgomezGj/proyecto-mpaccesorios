@@ -1,62 +1,64 @@
 /* Modal.css */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px; /* Asegura que haya un poco de espacio en los bordes */
-    box-sizing: border-box;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* Evita que la barra de desplazamiento aparezca en el fondo */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  max-height: 90vh; /* Limita la altura máxima del modal */
+  overflow-y: auto; /* Añade scroll si el contenido es muy alto */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.modal-price {
+  font-size: 1.2rem;
+  color: #85620a;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
   .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    max-width: 100%;
-    width: 100%;
-    max-height: 90vh; /* Limita la altura máxima del modal */
-    overflow-y: auto; /* Añade scroll si el contenido es muy alto */
-    box-sizing: border-box;
-    text-align: center;
+    width: 60%; /* Ancho para pantallas medianas y grandes */
   }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .modal-content {
+    width: 40%; /* Ancho para pantallas grandes */
   }
-  
-  .modal-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-  
-  .modal-price {
-    font-size: 1.2rem;
-    color: #85620a;
-    margin-top: 0.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .modal-content {
-      width: 60%; /* Ancho para pantallas medianas y grandes */
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .modal-content {
-      width: 40%; /* Ancho para pantallas grandes */
-    }
-  }
+}
+
   
   

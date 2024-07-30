@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Modal from '../Modal'; // Asegúrate de que la ruta sea correcta
+import Modal from '../Modal';
 import '../ProductCard.css';
 
 const ProductCard = ({ product, addToCart }) => {
@@ -22,7 +22,7 @@ const ProductCard = ({ product, addToCart }) => {
           <button className="buy-button" onClick={(e) => { e.stopPropagation(); addToCart(product); }}>Comprar</button>
         </div>
       </div>
-      <Modal show={showModal} onClose={toggleModal} product={product} />
+      <Modal show={showModal} onClose={toggleModal} product={product} addToCart={addToCart} />
     </>
   );
 };
@@ -39,6 +39,7 @@ ProductCard.propTypes = {
 };
 
 export default ProductCard;
+
 
 
 

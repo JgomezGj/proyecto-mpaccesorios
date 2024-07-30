@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "../../src/Home.css";
 import modaImage from "../assets/moda.jpg";
 import motivacionImage from "../assets/motivacion.jpg";
@@ -7,11 +8,12 @@ import novedadesImage from "../assets/novedades.jpg";
 
 const Home = () => {
   const [currentSection, setCurrentSection] = useState(0);
+  const navigate = useNavigate();
   const sections = [
-    { name: "Novedades", image: novedadesImage },
-    { name: "Moda", image: modaImage },
-    { name: "Motivación", image: motivacionImage },
-    { name: "Mujeres", image: mujeresImage },
+    { name: "Novedades", image: novedadesImage, link: '/collections' },
+    { name: "Moda", image: modaImage, link: '/moda' },
+    { name: "Motivación", image: motivacionImage, link: '/motivacion' },
+    { name: "Mujeres", image: mujeresImage, link: '/mujeres' },
   ];
 
   const handleNextSection = () => {
@@ -27,13 +29,17 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleSectionClick = () => {
+    navigate(sections[currentSection].link);
+  };
+
   return (
     <div>
       <h1 className="firma">By María Paula Jaramillo</h1>
       <main>
         <div className="section-slider">
           <button onClick={handlePreviousSection}>&lt;</button>
-          <div className="slider-content">
+          <div className="slider-content" onClick={handleSectionClick}>
             <div
               className="slider-background"
               style={{ backgroundImage: `url(${sections[currentSection].image})` }}
@@ -49,3 +55,4 @@ const Home = () => {
 };
 
 export default Home;
+

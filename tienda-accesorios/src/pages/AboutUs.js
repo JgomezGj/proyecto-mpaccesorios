@@ -5,6 +5,7 @@ const AboutUs = () => {
   return (
     <main className="content-container">
       <div className="text-container">
+        <h2 className="store-title">Nosotros</h2>
         <p className="custom-paragraph">
           En MPAccesorios, celebramos la belleza de la artesanía y la
           individualidad. Cada uno de nuestros accesorios es cuidadosamente
